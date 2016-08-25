@@ -12,7 +12,7 @@ services:
             MYSQL_ROOT_PASSWORD: root
             MYSQL_DATABASE: symfony
             MYSQL_USER: root
-            MYSQL_PASSWORD: root
+            MYSQL_PASSWORD: secret
     
     ### Redis Server Container ##################################    
     redis:
@@ -64,15 +64,15 @@ services:
         hostname: eea-rabbit
         restart: always
         environment:
-            - RABBITMQ_DEFAULT_USER=root
-            - RABBITMQ_DEFAULT_PASS=secret
+          - RABBITMQ_DEFAULT_USER=root
+          - RABBITMQ_DEFAULT_PASS=secret
         ports:
-            - 5672:5672   # port for the daemon API, can be exposed to public.
-            - 15672:15672 # port for the Management interface
+          - 5672:5672   # port for the daemon API, can be exposed to public.
+          - 15672:15672 # port for the Management interface
 
     ### ElasticSearch Server Container ##################################
-    elasticsearch:
-        image: elasticsearch
-        ports:
-            - 9200:9200 # Rest
-            - 9300:9300 # Node and transport client
+        elasticsearch:
+            image: elasticsearch
+            ports:
+                - 9200:9200 # Rest
+                - 9300:9300 # Node and transport client
