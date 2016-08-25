@@ -1,4 +1,5 @@
 docker-compose.yml
 /logs
 /.data
+/.idea
 /www
