@@ -19,5 +19,23 @@ sudo echo "localhost symfony.dev" >> /etc/hosts
 ```
 * Build the containers
 ```bash
-docker-compose up
+docker-compose up -d
 ```
+
+## Usage
+
+* Symfony app: visit symfony.dev
+* Symfony dev mode: visit symfony.dev/app_dev.php
+* Logs (Kibana): symfony.dev:81
+* Logs (files location): logs/nginx and logs/symfony
+
+## Tips
+* The php container includes Node.js, Bower and gulp 
+```bash
+docker exec -it symfodock_php_1 bash
+npm -v
+bower -v
+gulp -v
+```
+
+Enjoy.
