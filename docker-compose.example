@@ -51,6 +51,8 @@ services:
         image: willdurand/elk
         ports:
             - 81:80
+            - 9200:9200 # Rest
+            - 9300:9300 # Node and transport client
         volumes:
             - ./elk/logstash:/etc/logstash
             - ./elk/logstash/patterns:/opt/logstash/patterns
@@ -69,10 +71,3 @@ services:
         ports:
           - 5672:5672   # port for the daemon API, can be exposed to public.
           - 15672:15672 # port for the Management interface
-
-    ### ElasticSearch Server Container ##################################
-        elasticsearch:
-            image: elasticsearch
-            ports:
-                - 9200:9200 # Rest
-                - 9300:9300 # Node and transport client
