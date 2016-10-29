@@ -1,18 +1,19 @@
-FROM debian:jessie
+FROM nginx:alpine
 
-MAINTAINER Maxence POUTORD <maxence.poutord@gmail.com>
+MAINTAINER Mahmoud Zalt <mahmoud@zalt.me>
 
-RUN apt-get update && apt-get install -y \
-    nginx
+ADD nginx.conf /etc/nginx/
+COPY sites/*.conf /etc/nginx/sites-available/
 
+ARG PHP_UPSTREAM=php-fpm
 
-RUN ln -s /etc/nginx/sites-available/symfony.conf /etc/nginx/sites-enabled/symfony
-RUN rm /etc/nginx/sites-enabled/default
-
-
-RUN usermod -u 1000 www-data
+RUN apk update \
+    && apk upgrade \
+    && apk add --no-cache bash \
+    && adduser -D -H -u 1000 -s /bin/bash www-data \
+    && rm /etc/nginx/conf.d/default.conf \
+    && echo "upstream php-upstream { server ${PHP_UPSTREAM}:9000; }" > /etc/nginx/conf.d/upstream.conf
 
 CMD ["nginx"]
 
-EXPOSE 80
-EXPOSE 443
+EXPOSE 80 443
