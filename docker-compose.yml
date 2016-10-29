@@ -6,7 +6,8 @@ services:
     volumes_source:
         image: tianon/true
         volumes:
-            - ../${APP_DIR}/:/var/www/symfony              
+            - ../${APP_DIR}/:/var/www/symfony
+            - ./logs/symfony/:/var/www/symfony/var/logs   # Log files from Laravel              
             # Demonstration of how to mount multiple sites
             # - ../../site_a/:/var/www/site_a
             # - ../../site_b/:/var/www/site_b
@@ -57,8 +58,8 @@ services:
             # IMPORTANT: Replace with your Docker Host IP (will be appended to /etc/hosts)
             - "dockerhost:10.0.75.1"
         environment:
-            # IMPORTANT: Set the Remote Interpreter entry matching name to `laravel`
-            - PHP_IDE_CONFIG="serverName=laravel"
+            # IMPORTANT: Set the Remote Interpreter entry matching name to `symfony`
+            - PHP_IDE_CONFIG="serverName=symfony"
                 
     ### MySQL Server Container ##################################    
     mysql:
@@ -116,7 +117,6 @@ services:
             - ./elk/logstash/patterns:/opt/logstash/patterns
         volumes_from:
             - nginx
-            - php-fpm
             - volumes_source
         ports:
             - 81:80       #Kibana
