@@ -1,7 +1,7 @@
 # SymfoDock (PHP7 - NGINX - MySQL - ELK - REDIS - RABBITMQ)
 
-* This project begun as a fork of  [maxpou/docker-symfony](https://github.com/maxpou/docker-symfony) Many thanks *
-* This is currently inspired in  [LaraDock/laradock](https://github.com/LaraDock/laradock) Many thanks *
+**This project begun as a fork of  [maxpou/docker-symfony](https://github.com/maxpou/docker-symfony) Many thanks **
+** This is currently inspired in  [LaraDock/laradock](https://github.com/LaraDock/laradock) Many thanks **
 
 
 ## Installation
