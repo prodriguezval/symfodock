@@ -1,13 +1,13 @@
 version: '2'
 
 services:
-    ### Laravel Application Code Container ######################
+    ### Symfony Application Code Container ######################
 
     volumes_source:
         image: tianon/true
         volumes:
             - ../${APP_DIR}/:/var/www/symfony
-            - ./logs/symfony/:/var/www/symfony/var/logs   # Log files from Laravel              
+            - ./logs/symfony/:/var/www/symfony/var/logs   # Log files from Symfony              
             # Demonstration of how to mount multiple sites
             # - ../../site_a/:/var/www/site_a
             # - ../../site_b/:/var/www/site_b
