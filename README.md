@@ -1,7 +1,7 @@
 # SymfoDock (PHP7 - NGINX - MySQL - ELK - REDIS - RABBITMQ)
 
-**This project begun as a fork of  [maxpou/docker-symfony](https://github.com/maxpou/docker-symfony) Many thanks **
-** This is currently inspired in  [LaraDock/laradock](https://github.com/LaraDock/laradock) Many thanks **
+* **This project begun as a fork of  [maxpou/docker-symfony](https://github.com/maxpou/docker-symfony) Many thanks**
+* **This is currently inspired in  [LaraDock/laradock](https://github.com/LaraDock/laradock) Many thanks**
 
 
 ## Installation
@@ -9,6 +9,7 @@
 * Clone the project
 ```bash
 $ git clone git@github.com:prodriguezval/symfodock.git
+```
 
 The concept of this project is deliver with docker from dev to prod, to achieve that use the docker's .env file to configure some variables for each different environment
 
@@ -27,7 +28,7 @@ You can start only the services that you need (MySQL, NGINX, PHP-FPM), with this
 docker-compose up -d nginx mysql
 ```
 
-This is fine to begin, but if you need any other service like log reading, or queues  look for the alias of the service in the docker-compose.yml and add it to the command like this: 
+This is fine to begin, but if you need any other service like log reading, or redis  look for the alias of the service in the docker-compose.yml and add it to the command like this: 
 
 ```bash
 docker-compose up -d nginx mysql elk redis
