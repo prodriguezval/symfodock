@@ -16,7 +16,7 @@ $ git clone git@github.com:prodriguezval/symfodock.git
 The concept of this project is deliver with docker from dev to prod, to achieve that use the docker's .env file to configure some variables for each different environment
 
 ```bash
-$ cp .env.example .env
+$ cp .env.dist .env
 ```
 * Review the .env file and change the values as you need
 
